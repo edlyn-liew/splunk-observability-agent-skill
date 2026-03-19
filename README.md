@@ -1,8 +1,5 @@
-<p align="center">
-  <img src="https://www.splunk.com/content/dam/splunk2/images/Planet-workspace-workspace.svg" alt="Splunk" width="80" />
-</p>
 
-<h1 align="center">Splunk AI Skills</h1>
+<h1 align="center">Splunk Infrastructure & Observability Skills</h1>
 
 <p align="center">
   <strong>Claude plugin for Splunk — expert guidance for monitoring, observability, and app development</strong>
