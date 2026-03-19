@@ -16,8 +16,8 @@
       "author": {
         "name": "Edlyn Liew"
       },
-      "homepage": "https://github.com/tufttea/splunk-observability-agent-skill",
-      "repository": "https://github.com/tufttea/splunk-observability-agent-skill",
+      "homepage": "https://github.com/edlyn-liew/splunk-observability-agent-skill",
+      "repository": "https://github.com/edlyn-liew/splunk-observability-agent-skill",
       "license": "MIT",
       "keywords": [
         "splunk",
