@@ -1,6 +1,4 @@
 
-<h1 align="center">Splunk Infrastructure & Observability Skills</h1>
-
 <p align="center">
   <strong>Claude plugin for Splunk — expert guidance for monitoring, observability, and app development</strong>
 </p>
@@ -31,7 +29,7 @@ claude plugin install splunk-observability-agent-skill
 
 ```bash
 # Clone to your Claude skills directory
-git clone https://github.com/tufttea/splunk-observability-agent-skill.git ~/.claude/skills/splunk-observability-agent-skill
+git clone https://github.com/edlyn-liew/splunk-observability-agent-skill.git ~/.claude/skills/splunk-observability-agent-skill
 ```
 
 ```
@@ -169,7 +167,7 @@ Be specific with Splunk terminology in your prompts. Mentioning keywords like "S
 
 ## Contributing
 
-Built by [Tufttea Studios](https://github.com/tufttea). For issues or feature requests, open an issue in the repository.
+Built by [Edlyn Liew](https://github.com/edlyn-liew). For issues or feature requests, open an issue in the repository.
 
 ## License
 

@@ -1,6 +1,6 @@
-# Splunk AI Skills
+# Splunk Infrastructure Observability Agent Skill
 
-8 comprehensive Splunk skills for development, monitoring, and security across all infrastructure layers.
+8 comprehensive In Splunk skills for development, monitoring, and security across all infrastructure layers.
 
 ## Skills
 
