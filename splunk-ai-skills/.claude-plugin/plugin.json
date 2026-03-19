@@ -1,9 +1,0 @@
-{
-  "name": "splunk-ai-skills",
-  "version": "0.6.0",
-  "description": "8 comprehensive Splunk skills: UCC app development, ITSI, SPL search, network infrastructure, OpenTelemetry, Observability Cloud, AWS monitoring, and Cisco ThousandEyes/Meraki",
-  "author": {
-    "name": "Tufttea Studios"
-  },
-  "keywords": ["splunk", "ucc", "itsi", "spl", "network", "opentelemetry", "aws", "thousandeyes", "meraki", "cisco", "monitoring"]
-}

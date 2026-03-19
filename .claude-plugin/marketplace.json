@@ -1,0 +1,56 @@
+{
+  "name": "splunk-observability-agent-skill",
+  "owner": {
+    "name": "Tufttea Studios",
+    "email": "tufttea.studios@gmail.com"
+  },
+  "metadata": {
+    "description": "Expert Splunk guidance for monitoring, observability, and app development — 8 specialized skills covering the full Splunk ecosystem.",
+    "version": "0.6.0"
+  },
+  "plugins": [
+    {
+      "name": "splunk-observability-agent-skill",
+      "source": "./splunk-observability-agent-skill",
+      "description": "8 comprehensive Splunk skills: SPL search optimization, UCC app development, ITSI service modeling, network infrastructure monitoring, OpenTelemetry deployment, Observability Cloud (APM/K8s/RUM), AWS infrastructure monitoring, and Cisco ThousandEyes & Meraki.",
+      "version": "0.6.0",
+      "author": {
+        "name": "Tufttea Studios",
+        "email": "tufttea.studios@gmail.com"
+      },
+      "homepage": "https://github.com/tufttea/splunk-observability-agent-skill",
+      "repository": "https://github.com/tufttea/splunk-observability-agent-skill",
+      "license": "MIT",
+      "keywords": [
+        "splunk",
+        "observability",
+        "monitoring",
+        "opentelemetry",
+        "infrastructure",
+        "spl",
+        "itsi",
+        "aws",
+        "network",
+        "cisco",
+        "meraki",
+        "thousandeyes",
+        "apm",
+        "kubernetes",
+        "devops"
+      ],
+      "category": "DevOps & Infrastructure",
+      "tags": [
+        "splunk",
+        "observability",
+        "monitoring",
+        "otel",
+        "infrastructure",
+        "network",
+        "aws",
+        "cisco",
+        "itsi",
+        "spl"
+      ]
+    }
+  ]
+}

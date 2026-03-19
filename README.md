@@ -24,18 +24,18 @@ Splunk AI Skills turns Claude into a Splunk Infrastructure expert. Get instant g
 ### Claude Code (CLI)
 
 ```bash
-claude plugin install splunk-ai-skills
+claude plugin install splunk-observability-agent-skill
 ```
 
 ### Manual Installation
 
 ```bash
 # Clone to your Claude skills directory
-git clone https://github.com/tufttea/splunk-ai-skills.git ~/.claude/skills/splunk-ai-skills
+git clone https://github.com/tufttea/splunk-observability-agent-skill.git ~/.claude/skills/splunk-observability-agent-skill
 ```
 
 ```
-claude --plugin-dir ./splunk-ai-skills
+claude --plugin-dir ./splunk-observability-agent-skill
 ```
 
 Then restart Claude.
@@ -134,7 +134,7 @@ Claude reads the relevant skill file when it detects a Splunk topic in your ques
 ## Plugin Structure
 
 ```
-splunk-ai-skills/
+splunk-observability-agent-skill/
 ├── .claude-plugin/
 │   └── plugin.json
 ├── README.md
@@ -159,7 +159,7 @@ splunk-ai-skills/
 
 **Skills not activating?**
 
-1. Verify the plugin is installed: check `~/.claude/skills/splunk-ai-skills/` exists
+1. Verify the plugin is installed: check `~/.claude/skills/splunk-observability-agent-skill/` exists
 2. Ensure `.claude-plugin/plugin.json` is present
 3. Restart Claude Desktop or your Claude Code session
 

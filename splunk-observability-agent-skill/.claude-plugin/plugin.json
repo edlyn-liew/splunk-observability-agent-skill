@@ -1,0 +1,29 @@
+{
+  "name": "splunk-observability-agent-skill",
+  "description": "8 comprehensive Splunk skills: SPL search optimization, UCC app development, ITSI service modeling, network infrastructure monitoring, OpenTelemetry deployment, Observability Cloud (APM/K8s/RUM), AWS infrastructure monitoring, and Cisco ThousandEyes & Meraki.",
+  "version": "0.6.0",
+  "author": {
+    "name": "Tufttea Studios",
+    "email": "tufttea.studios@gmail.com"
+  },
+  "homepage": "https://github.com/tufttea/splunk-observability-agent-skill",
+  "repository": "https://github.com/tufttea/splunk-observability-agent-skill",
+  "license": "MIT",
+  "keywords": [
+    "splunk",
+    "observability",
+    "monitoring",
+    "opentelemetry",
+    "infrastructure",
+    "spl",
+    "itsi",
+    "aws",
+    "network",
+    "cisco",
+    "meraki",
+    "thousandeyes",
+    "apm",
+    "kubernetes",
+    "devops"
+  ]
+}
