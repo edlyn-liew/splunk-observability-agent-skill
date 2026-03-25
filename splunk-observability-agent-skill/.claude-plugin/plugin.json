@@ -1,7 +1,7 @@
 {
   "name": "splunk-observability-agent-skill",
   "description": "8 comprehensive Splunk skills: SPL search optimization, UCC app development, ITSI service modeling, network infrastructure monitoring, OpenTelemetry deployment, Observability Cloud (APM/K8s/RUM), AWS infrastructure monitoring, and Cisco ThousandEyes & Meraki.",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "author": {
     "name": "Edlyn Liew"
   },
