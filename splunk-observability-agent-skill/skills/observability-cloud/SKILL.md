@@ -1,33 +1,56 @@
 ---
 name: observability-cloud
 description: >
-  Splunk Observability Cloud best practices — APM tracing, Kubernetes monitoring, service maps,
-  RUM, Log Observer, detectors, and platform/security team operational patterns. Use when the
-  user asks to "set up Splunk APM", "instrument an application for tracing", "auto-instrument
-  with OpenTelemetry", "monitor Kubernetes in Splunk", "set up K8s monitoring", "configure
+  Splunk Observability Cloud and Splunk AppDynamics SaaS best practices — APM tracing,
+  Kubernetes monitoring, service maps, RUM, Log Observer, detectors, AppDynamics business
+  transactions, database visibility, infrastructure visibility, end user monitoring, ADQL
+  analytics, and platform/security team operational patterns. Use when the user asks to
+  "set up Splunk APM", "instrument an application for tracing", "auto-instrument with
+  OpenTelemetry", "monitor Kubernetes in Splunk", "set up K8s monitoring", "configure
   detectors and alerts", "use Splunk Observability dashboards", "analyze traces", "set up
   service maps", "configure span tags", "enable always-on profiling", "set up RUM",
   "configure Log Observer", "manage Observability Cloud teams and tokens", "set up RBAC
   for observability", "reduce observability costs", "configure data retention", "auto-instrument
   Java Python Node.js", "deploy OTel operator in Kubernetes", "monitor microservices",
   "troubleshoot application performance", "set up RED metrics", "calculate error budgets",
+  "set up AppDynamics", "configure AppDynamics agents", "monitor business transactions",
+  "set up AppDynamics database visibility", "configure AppDynamics health rules",
+  "set up AppDynamics EUM", "use ADQL", "configure AppDynamics flow maps",
+  "set up AppDynamics infrastructure visibility", "monitor with AppDynamics machine agent",
+  "configure AppDynamics Kubernetes cluster agent", "set up AppDynamics synthetic monitoring",
+  "AppDynamics vs Observability Cloud", "unified observability with AppDynamics",
+  "set up Cisco Secure Application", "AppDynamics transaction snapshots",
   or needs guidance on application tracing, distributed tracing, Kubernetes observability,
-  or platform team and security team best practices for Splunk Observability Cloud.
+  business transaction monitoring, database visibility, end user monitoring,
+  or platform team and security team best practices for Splunk Observability Cloud
+  and Splunk AppDynamics.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
-# Splunk Observability Cloud
+# Splunk Observability Cloud & Splunk AppDynamics SaaS
 
-Best practices for APM, Kubernetes monitoring, application tracing, and platform/security team operations in Splunk Observability Cloud.
+Best practices for APM, Kubernetes monitoring, application tracing, and platform/security team operations in Splunk Observability Cloud, plus Splunk AppDynamics SaaS for business transaction monitoring, database visibility, infrastructure visibility, end user monitoring, and application security.
 
 ## Official Documentation
 
+### Splunk Observability Cloud
 - [Observability Cloud Overview](https://docs.splunk.com/observability/en/get-started/overview.html)
 - [APM Setup](https://docs.splunk.com/Observability/apm/set-up-apm/apm.html)
 - [Infrastructure Monitoring](https://docs.splunk.com/observability/infrastructure/infrastructure.html)
 - [Log Observer](https://docs.splunk.com/Observability/logs/logs.html)
 - [RUM Setup](https://docs.splunk.com/observability/rum/set-up-rum.html)
+
+### Splunk AppDynamics SaaS
+- [AppDynamics SaaS Overview](https://help.splunk.com/en/appdynamics-saas)
+- [Getting Started](https://help.splunk.com/en/appdynamics-saas/get-started)
+- [Application Performance Monitoring](https://help.splunk.com/en/appdynamics-saas/application-performance-monitoring)
+- [Database Visibility](https://help.splunk.com/en/appdynamics-saas/database-visibility)
+- [Infrastructure Visibility](https://help.splunk.com/en/appdynamics-saas/infrastructure-visibility)
+- [End User Monitoring](https://help.splunk.com/en/appdynamics-saas/end-user-monitoring)
+- [Analytics](https://help.splunk.com/en/appdynamics-saas/analytics)
+- [Application Security](https://help.splunk.com/en/appdynamics-saas/application-security-monitoring)
+- [Extend AppDynamics](https://help.splunk.com/en/appdynamics-saas/extend-splunk-appdynamics)
 
 ## Platform Components
 
@@ -255,6 +278,139 @@ Docs: [Data Retention](https://help.splunk.com/en/splunk-observability-cloud/adm
 9. **Set usage limits** — per-token limits prevent runaway costs from misconfiguration
 10. **Rotate tokens regularly** — 90-day rotation cycle, use pre-expiration rotation
 
+## Splunk AppDynamics SaaS
+
+Splunk AppDynamics is a complementary APM platform that uses proprietary agents for deep application diagnostics, automatic business transaction detection, database visibility, and runtime application security.
+
+### Architecture
+
+| Component | What It Does | Deployment |
+|-----------|-------------|-----------|
+| **Controller Tenant** | Browser-based console for monitoring, configuration, troubleshooting | SaaS-hosted |
+| **Application Agents** | Instrument app code for BT tracing | Per-app/tier/node |
+| **Machine Agent** | Collects host infrastructure metrics (CPU, disk, memory, network) | Per-host |
+| **Database Agent** | Monitors database performance, queries, wait states | Per-database cluster |
+| **Analytics Agent** | Handles analytics data collection and event processing | Standalone or alongside apps |
+
+### Supported Application Agents
+
+| Agent | Languages/Frameworks |
+|-------|---------------------|
+| **Java** | Java, Kotlin, Scala (Tomcat, WebLogic, WebSphere, JBoss, Spring Boot) |
+| **.NET** | C#, VB.NET (IIS, .NET Core, Azure) |
+| **Node.js** | Express, Koa, Hapi |
+| **Python** | Django, Flask, FastAPI |
+| **PHP** | Apache, Nginx, WordPress |
+| **Go SDK** | Go (manual instrumentation) |
+| **C/C++ SDK** | C, C++ (manual instrumentation) |
+
+### Business Transactions (BTs)
+
+The primary unit of monitoring — a user-initiated workflow through the application:
+- Automatic detection at entry points (HTTP, web services, message queues, background tasks)
+- Custom detection rules, naming rules, exclusion rules
+- Default limit: 200 BTs per application (overflow → "All Other Traffic")
+- Flow maps visualize tier/backend relationships with health status coloring
+
+### Transaction Snapshots
+
+Periodic deep-dive captures of individual executions:
+- Call graphs with method-level timing
+- SQL queries with bind variables (configurable)
+- HTTP exit calls with timing
+- Error stack traces
+- Custom data collectors (method params/return values)
+- Async cross-thread correlation
+
+### Health Rules & Baselines
+
+| Health Rule Type | Example Condition |
+|-----------------|-------------------|
+| **BT Performance** | Response time > 2x baseline for 3 minutes |
+| **BT Error Rate** | Error % > 5% for 5 minutes |
+| **Overall App** | Slow transactions > 10% of total |
+| **Node Health** | JVM heap usage > 80% |
+| **Infrastructure** | CPU > 90% for 10 minutes |
+
+Baselines are automatically calculated from rolling historical data. Severity levels: Critical, Warning, Info.
+
+### Database Visibility
+
+Dedicated database agent with support for: Oracle (RAC), SQL Server (AWS RDS, Azure), MySQL (RDS), PostgreSQL (pgvector), MongoDB (Kerberos), IBM DB2, Cassandra (Apache/DSE), Couchbase, SAP HANA, Sybase ASE/IQ.
+
+Key features: query analysis, wait state filtering, execution plan analysis, blocking session detection, BT correlation, hardware metrics, and custom metrics.
+
+### Infrastructure Visibility
+
+- **Machine Agent**: CPU, disk, memory, network metrics (Linux, Windows, Solaris, AIX)
+- **Server Visibility**: Process monitoring, availability, health rules, tagging
+- **Network Visibility**: Packet loss, RTT, TCP errors, retransmissions (additional license)
+- **Kubernetes**: Cluster Agent via Helm/CLI/OpenShift, auto-instrumentation, container metrics
+- **GPU Monitoring**: DCGM Exporter, NVIDIA-SMI collector
+
+### End User Monitoring (EUM)
+
+| Type | How It Works |
+|------|-------------|
+| **Browser RUM** | JavaScript agent injection — page performance, AJAX, JS errors, session replay, Web Vitals, SPA support |
+| **Mobile RUM** | iOS/Android SDK — network requests, crashes, ANR detection, sessions |
+| **Synthetic Monitoring** | Scripted browser and API tests from public/private locations |
+
+### Analytics (ADQL)
+
+AppDynamics Query Language for analytics searches:
+
+```sql
+SELECT transactionName, avg(responseTime), count(*)
+FROM transactions
+WHERE responseTime > 5000 AND application = 'ecommerce'
+SINCE 1 hour ago
+GROUP BY transactionName
+ORDER BY avg(responseTime) DESC
+LIMIT 20
+```
+
+Data sources: Transaction Analytics, Log Analytics, Browser Analytics, Mobile Analytics, Synthetic Analytics.
+
+Advanced features: Business Journeys (multi-step funnel tracking), Experience Level Management (SLA compliance).
+
+### Application Security (Cisco Secure Application)
+
+Runtime vulnerability assessment and protection integrated with APM:
+- Continuous code execution scanning for known CVEs
+- Real-time exploit blocking
+- Zero-day vulnerability detection
+- Attack monitoring and alerting
+- Requires separate Secure Application subscription license
+- Supported with Java, .NET, and Node.js agents
+
+### Extensions & APIs
+
+REST APIs: Application Model, Metric & Snapshot, Alert & Respond, Configuration, Database Visibility, Analytics Events, RBAC, License, Synthetic Monitoring, Agent Management.
+
+Alert integrations: Email, SMS, HTTP webhooks, PagerDuty, Slack, Microsoft Teams, JIRA, ServiceNow, Splunk Enterprise.
+
+Pre-built extensions: [AppDynamics Community Exchange](https://developer.cisco.com/codeexchange/search?q=Appdynamics)
+
+### AppDynamics vs Splunk Observability Cloud
+
+| Aspect | AppDynamics | Splunk Observability Cloud |
+|--------|-------------|---------------------------|
+| **Instrumentation** | Proprietary agents (deep auto-discovery) | OpenTelemetry-based (open standard) |
+| **BT detection** | Automatic business transaction detection | Manual span/trace instrumentation |
+| **Database monitoring** | Built-in Database Visibility with dedicated agent | Via OTel database client spans |
+| **Infrastructure** | Machine Agent | OTel Collector host metrics |
+| **End user** | BRUM + Mobile RUM + Synthetics | Splunk RUM + Synthetics |
+| **Analytics** | ADQL, Business Journeys, XLM | SignalFlow, dashboards |
+| **Security** | Cisco Secure Application (runtime) | N/A (complemented by Splunk SIEM) |
+| **Best for** | Deep app diagnostics, legacy/enterprise apps | Cloud-native, microservices, K8s-first |
+
+**When to choose**:
+- **AppDynamics**: Legacy enterprise applications, deep BT-level diagnostics, database visibility, runtime application security, teams familiar with AppDynamics
+- **Splunk Observability Cloud**: Cloud-native microservices, Kubernetes-first, OpenTelemetry standardization, real-time streaming analytics
+- **Both together**: Full-stack unified observability across legacy and modern application estates
+
 For detailed references, read:
 - `references/apm-tracing-reference.md` — APM deep dive, instrumentation, and troubleshooting
 - `references/kubernetes-observability.md` — K8s deployment patterns, metrics, and Navigator
+- `references/appdynamics-reference.md` — AppDynamics SaaS deep dive, agents, database visibility, EUM, analytics, and troubleshooting
